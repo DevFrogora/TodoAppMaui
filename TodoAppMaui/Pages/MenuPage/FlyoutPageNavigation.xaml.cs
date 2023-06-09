@@ -13,7 +13,7 @@ public partial class FlyoutPageNavigation : FlyoutPage
         var item = e.CurrentSelection.FirstOrDefault() as FlyoutPageItem;
         if (item != null)
         {
-            DisplayAlert("Hello", $"{item.TargetType}", "ok");
+            //DisplayAlert("Hello", $"{item.TargetType}", "ok");
             Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
             if (!((IFlyoutPageController)this).ShouldShowSplitMode)
                 IsPresented = false;
