@@ -8,24 +8,24 @@
              x:DataType="viewmodel:TodoHomeViewModel"
              x:Name="TodoHomeViewModel"
              Title="HomePage">
-    <VerticalStackLayout>
-        <Label 
+    <StackLayout>
+    <Label 
             Text=" ---Todo List--- "
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <cells:TodoInputCell />
-        <ListView ItemsSource="{x:Binding todoList}">
-            <ListView.ItemTemplate>
-                <DataTemplate  >
-                    <ViewCell >
-                        <ViewCell.ContextActions >
-                            <MenuFlyoutItem  Text="Edit" Command="{Binding Source={x:Reference TodoHomeViewModel}, Path=BindingContext.OnShowEditPopUpCommand}" CommandParameter="{Binding .}"  ></MenuFlyoutItem>
-                            <MenuFlyoutItem Text="Delete" Command="{Binding Source={x:Reference TodoHomeViewModel}, Path=BindingContext.OnShowDeletePopUpCommand}" CommandParameter="{Binding .}" ></MenuFlyoutItem>
-                        </ViewCell.ContextActions>
-                        <cells:TodoCard x:DataType="model:Todo"/>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </VerticalStackLayout>
+    <cells:TodoInputCell  />
+    <ListView ItemsSource="{x:Binding todoList}" HasUnevenRows="True"    >
+        <ListView.ItemTemplate>
+            <DataTemplate  >
+                <ViewCell >
+                    <ViewCell.ContextActions >
+                        <MenuFlyoutItem  Text="Edit" Command="{Binding Source={x:Reference TodoHomeViewModel}, Path=BindingContext.OnShowEditPopUpCommand}" CommandParameter="{Binding .}"  ></MenuFlyoutItem>
+                        <MenuFlyoutItem Text="Delete" Command="{Binding Source={x:Reference TodoHomeViewModel}, Path=BindingContext.OnShowDeletePopUpCommand}" CommandParameter="{Binding .}" ></MenuFlyoutItem>
+                    </ViewCell.ContextActions>
+                    <cells:TodoCard x:DataType="model:Todo"/>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    </StackLayout>
 </ContentPage>

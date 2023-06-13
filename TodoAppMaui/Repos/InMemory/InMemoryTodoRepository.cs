@@ -55,7 +55,7 @@ namespace TodoAppMaui.Repos.InMemory
                 Id = 1,
                 Date = new DateOnly(2021, 5, 31),
                 Title = "Morning Walk",
-                Description = "To get Fresh air in the morning",
+                Description = "To get Fresh air in the morning , let add more data so lol we can see Hahah",
                 IsCompleted = false
             };
             var t2 = new Todo
@@ -66,8 +66,65 @@ namespace TodoAppMaui.Repos.InMemory
                 Description = "To get rid of stress in the evening",
                 IsCompleted = false
             };
+            var t3 = new Todo
+            {
+                Id = 1,
+                Date = new DateOnly(2021, 5, 31),
+                Title = "Morning Walk",
+                Description = "To get Fresh air in the morning , let add more data so lol we can see Hahah",
+                IsCompleted = false
+            };
+            var t4 = new Todo
+            {
+                Id = 2,
+                Date = new DateOnly(2021, 5, 31),
+                Title = "Evening Walk",
+                Description = "To get rid of stress in the evening",
+                IsCompleted = false
+            };
+            var t5 = new Todo
+            {
+                Id = 1,
+                Date = new DateOnly(2021, 5, 31),
+                Title = "Morning Walk",
+                Description = "To get Fresh air in the morning , let add more data so lol we can see Hahah",
+                IsCompleted = false
+            };
+            var t6 = new Todo
+            {
+                Id = 2,
+                Date = new DateOnly(2021, 5, 31),
+                Title = "Evening Walk",
+                Description = "To get rid of stress in the evening",
+                IsCompleted = false
+            };
+            var t7 = new Todo
+            {
+                Id = 1,
+                Date = new DateOnly(2021, 5, 31),
+                Title = "Morning Walk",
+                Description = "To get Fresh air in the morning , let add more data so lol we can see Hahah",
+                IsCompleted = false
+            };
+            var t8 = new Todo
+            {
+                Id = 2,
+                Date = new DateOnly(2021, 5, 31),
+                Title = "Evening Walk",
+                Description = "To get rid of stress in the evening",
+                IsCompleted = false
+            };
             AddTodo(t1);
             AddTodo(t2);
+            AddTodo(t3);
+            AddTodo(t4);
+            AddTodo(t5);
+            AddTodo(t6);
+            AddTodo(t7);
+            AddTodo(t8);
+            AddTodo(t8);
+            AddTodo(t8);
+            AddTodo(t8);
         }
 
     }

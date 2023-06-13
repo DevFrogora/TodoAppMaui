@@ -8,14 +8,10 @@
              x:DataType="viewmodel:TodoHistoryViewModel"
              Title="HistoryPage">
 
-    <ListView ItemsSource="{x:Binding todoList}">
+    <ListView ItemsSource="{x:Binding todoList}" HasUnevenRows="True">
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Todo">
                 <ViewCell>
-                    <!--<ViewCell.ContextActions>
-                        <MenuFlyoutItem Text="Edit" Command="{Binding }" ></MenuFlyoutItem>
-                        <MenuFlyoutItem Text="Delete"></MenuFlyoutItem>
-                    </ViewCell.ContextActions>-->
                     <cells:TodoCard />
                 </ViewCell>
             </DataTemplate>

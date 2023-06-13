@@ -8,7 +8,7 @@
                    xmlns:viewmodel="clr-namespace:TodoAppMaui.viewmodel"
                    x:DataType="viewmodel:TodoHomeViewModel"
                     CanBeDismissedByTappingOutsideOfPopup="False">
-    <VerticalStackLayout >
+    <VerticalStackLayout MaximumWidthRequest="380">
         <Grid Padding="10" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -30,23 +30,40 @@
 
                 </Entry.Behaviors>
             </Entry>
-            <Button Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
+            <Button Grid.Row="0" Grid.Column="1" 
                 Text="Edit"
                 VerticalOptions="Center"
                 Command="{Binding OnEditTodoCommand}"
                 FontAttributes="Bold" />
-            <Entry Grid.Row="1" 
-               Grid.Column="0" 
-               Placeholder="Description"
-               Text="{Binding tempTodo.Description}" FontAttributes="Bold" >
-                <Entry.Behaviors>
+
+            <Editor Grid.Row="1" 
+                    Grid.Column="0" 
+                    Placeholder="Description"
+                    Text="{Binding tempTodo.Description}"
+                    HeightRequest="100"
+                    >
+                <Editor.Behaviors>
                     <toolkit:TextValidationBehavior 
                     IsValid="{Binding boolIsDescriptionValid}"
                     Flags="ValidateOnAttaching,ValidateOnValueChanged"
                     MinimumLength="3"/>
-                </Entry.Behaviors>
-            </Entry>
+                </Editor.Behaviors>
+            </Editor>
+
 
         </Grid>
     </VerticalStackLayout>
 </toolkitView:Popup>
+
+<!--<Entry Grid.Row="1" 
+               Grid.Column="0" 
+               Placeholder="Description"
+                  
+               Text="{Binding tempTodo.Description}" FontAttributes="Bold" >
+    <Entry.Behaviors>
+        <toolkit:TextValidationBehavior 
+                    IsValid="{Binding boolIsDescriptionValid}"
+                    Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                    MinimumLength="3"/>
+    </Entry.Behaviors>
+</Entry>-->
