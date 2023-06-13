@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TodoAppMaui.Cells.TodoDeletePopup"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewmodel="clr-namespace:TodoAppMaui.viewmodel"
+             x:DataType="viewmodel:TodoHomeViewModel"
+             CanBeDismissedByTappingOutsideOfPopup="False">
+    <VerticalStackLayout>
+        <Grid Padding="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0"
+                           Text="{Binding tempTodo.Date}"
+                           FontAttributes="Bold" />
+            <Label Grid.Row="0" Grid.Column="1"
+                           Text="{Binding tempTodo.Title}"
+                           FontAttributes="Bold" />
+            <Label Grid.Row="1" Grid.ColumnSpan="2"
+                           Text="{Binding tempTodo.Description}"
+                           FontAttributes="Bold" />
+            <Label Grid.Row="2" Grid.Column="0"
+                           Text="{Binding tempTodo.Id}"
+                           FontAttributes="Bold" />
+            <Label Grid.Row="2" Grid.Column="1"
+                           Text="{Binding tempTodo.IsCompleted}"
+                           FontAttributes="Bold" />
+            <Button Grid.Row="3" Grid.Column="0" 
+                Text="Delete"
+                VerticalOptions="Center"
+                Command="{Binding OnDeleteTodoCommand}"
+                FontAttributes="Bold" />
+            <Button Grid.Row="3" Grid.Column="1" 
+                Text="Cancel"
+                VerticalOptions="Center"
+                Command="{Binding OnCloseDeletePopupCommand}"
+                FontAttributes="Bold" />
+
+        </Grid>
+    </VerticalStackLayout>
+</toolkit:Popup>

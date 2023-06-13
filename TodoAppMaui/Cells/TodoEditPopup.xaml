@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkitView:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:toolkitView="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+                    x:Class="TodoAppMaui.Cells.TodoEditPopup"
+                    xmlns:cells="clr-namespace:TodoAppMaui.Cells"
+                   xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+                   xmlns:viewmodel="clr-namespace:TodoAppMaui.viewmodel"
+                   x:DataType="viewmodel:TodoHomeViewModel"
+                    CanBeDismissedByTappingOutsideOfPopup="False">
+    <VerticalStackLayout >
+        <Grid Padding="10" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Entry Grid.Row="0" Grid.Column="0"
+                           Text="{Binding tempTodo.Title}"
+                           Placeholder="Title"
+                           FontAttributes="Bold" >
+                <Entry.Behaviors>
+                    <toolkit:TextValidationBehavior 
+                    IsValid="{Binding boolIsTitleValid}"
+                    Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                    MinimumLength="3"/>
+
+                </Entry.Behaviors>
+            </Entry>
+            <Button Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
+                Text="Edit"
+                VerticalOptions="Center"
+                Command="{Binding OnEditTodoCommand}"
+                FontAttributes="Bold" />
+            <Entry Grid.Row="1" 
+               Grid.Column="0" 
+               Placeholder="Description"
+               Text="{Binding tempTodo.Description}" FontAttributes="Bold" >
+                <Entry.Behaviors>
+                    <toolkit:TextValidationBehavior 
+                    IsValid="{Binding boolIsDescriptionValid}"
+                    Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                    MinimumLength="3"/>
+                </Entry.Behaviors>
+            </Entry>
+
+        </Grid>
+    </VerticalStackLayout>
+</toolkitView:Popup>

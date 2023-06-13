@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TodoAppMaui.Pages.HistoryPage"
+             xmlns:model ="clr-namespace:TodoAppMaui.model"
+             xmlns:cells="clr-namespace:TodoAppMaui.Cells"
+             xmlns:viewmodel="clr-namespace:TodoAppMaui.viewmodel"
+             x:DataType="viewmodel:TodoHistoryViewModel"
+             Title="HistoryPage">
+
+    <ListView ItemsSource="{x:Binding todoList}">
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="model:Todo">
+                <ViewCell>
+                    <!--<ViewCell.ContextActions>
+                        <MenuFlyoutItem Text="Edit" Command="{Binding }" ></MenuFlyoutItem>
+                        <MenuFlyoutItem Text="Delete"></MenuFlyoutItem>
+                    </ViewCell.ContextActions>-->
+                    <cells:TodoCard />
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

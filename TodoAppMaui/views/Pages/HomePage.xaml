@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TodoAppMaui.Pages.HomePage"
+             xmlns:cells="clr-namespace:TodoAppMaui.Cells"
+             xmlns:model ="clr-namespace:TodoAppMaui.model"
+             xmlns:viewmodel="clr-namespace:TodoAppMaui.viewmodel"
+             x:DataType="viewmodel:TodoHomeViewModel"
+             x:Name="TodoHomeViewModel"
+             Title="HomePage">
+    <VerticalStackLayout>
+        <Label 
+            Text=" ---Todo List--- "
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <cells:TodoInputCell />
+        <ListView ItemsSource="{x:Binding todoList}">
+            <ListView.ItemTemplate>
+                <DataTemplate  >
+                    <ViewCell >
+                        <ViewCell.ContextActions >
+                            <MenuFlyoutItem  Text="Edit" Command="{Binding Source={x:Reference TodoHomeViewModel}, Path=BindingContext.OnShowEditPopUpCommand}" CommandParameter="{Binding .}"  ></MenuFlyoutItem>
+                            <MenuFlyoutItem Text="Delete" Command="{Binding Source={x:Reference TodoHomeViewModel}, Path=BindingContext.OnShowDeletePopUpCommand}" CommandParameter="{Binding .}" ></MenuFlyoutItem>
+                        </ViewCell.ContextActions>
+                        <cells:TodoCard x:DataType="model:Todo"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>
