@@ -95,4 +95,9 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Services\Storage\Cache\" />
+	  <Folder Include="Services\Storage\Data\" />
+	</ItemGroup>
+
 </Project>

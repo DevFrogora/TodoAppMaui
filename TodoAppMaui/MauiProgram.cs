@@ -1,10 +1,11 @@
 ﻿using CommunityToolkit.Maui;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using TodoAppMaui.Api;
 using TodoAppMaui.Pages;
 using TodoAppMaui.Repos;
 using TodoAppMaui.Repos.InMemory;
+using TodoAppMaui.Services.Storage.Secure;
+using TodoAppMaui.Services.Storage.SharedPreference;
 using TodoAppMaui.Services.TodoServices;
 using TodoAppMaui.viewmodel;
 
@@ -30,9 +31,12 @@ public static class MauiProgram
         builder.Services.AddSingleton<ITodoService, TodoService>();
         builder.Services.AddSingleton<TodoApi>();
         builder.Services.AddSingleton<ITodoRepository,InMemoryTodoRepository>();
+        builder.Services.AddSingleton<ISecureStorageService,MauiSecureStorageService>();
+        builder.Services.AddSingleton<ISharedPreferenceService,MauiSharedPreferenceService>();
 
         builder.Services.AddSingleton<TodoHomeViewModel>();
         builder.Services.AddSingleton<TodoHistoryViewModel>();
+        builder.Services.AddSingleton<TodoSettingViewModel>();
         builder.Services.AddTransient<HomePage>();
         builder.Services.AddTransient<HistoryPage>();
 #if DEBUG
