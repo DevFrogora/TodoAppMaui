@@ -32,9 +32,9 @@ namespace TodoAppMaui.Services.TodoServices
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Todo> GetTodoList()
+        public async Task<IEnumerable<Todo>> GetTodoList()
         {
-           return todoApi.GetTodoList();
+           return await todoApi.GetTodoList();
         }
 
         public void UpdateTodo(Todo todo)

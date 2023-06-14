@@ -17,9 +17,9 @@ namespace TodoAppMaui.Repos.InMemory
             LoadData();
         }
 
-        public IEnumerable<Todo> GetTodoList()
+        public async Task<IEnumerable<Todo>> GetTodoList()
         {
-            return todoList.ToList();
+            return await Task.FromResult(todoList.ToList());
         }
 
         public void AddTodo(Todo item)

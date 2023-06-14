@@ -12,9 +12,9 @@ public class TodoApi
         this.todoRepository = todoRepository;
     }
 
-    public IEnumerable<Todo> GetTodoList()
+    public async Task<IEnumerable<Todo>> GetTodoList()
     {
-        return todoRepository.GetTodoList();
+        return await todoRepository.GetTodoList();
     }
 
     public void AddTodo(Todo item)

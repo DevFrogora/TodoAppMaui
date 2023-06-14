@@ -23,7 +23,7 @@ namespace TodoAppMaui.viewmodel
             this.todoService = todoService;
         }
         private readonly ITodoService todoService;
-        public IEnumerable<Todo> todoList { get { return todoService.GetTodoList(); } set { } }
+        public IEnumerable<Todo> todoList { get { return todoService.GetTodoList().Result; } set { } }
 
         public bool boolIsTitleValid { get; set; }
         public bool boolIsDescriptionValid { get; set; }

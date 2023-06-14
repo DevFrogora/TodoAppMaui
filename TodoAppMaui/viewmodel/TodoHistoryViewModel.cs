@@ -20,11 +20,11 @@ namespace TodoAppMaui.viewmodel
             this.todoService = todoService;
         }
 
-        public List<Todo> todoList
+        public IEnumerable<Todo> todoList
         {
             get
             {
-                return todoService.GetTodoList().ToList();
+                return todoService.GetTodoList().Result;
             }
         }
 

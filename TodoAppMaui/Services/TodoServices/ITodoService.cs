@@ -9,10 +9,10 @@ namespace TodoAppMaui.Services.TodoServices
 {
     public interface ITodoService
     {
-        IEnumerable<Todo> GetTodoList();
-      void GetTodo(string identifier);
-      void UpdateTodo(Todo todo);
-      void AddTodo(Todo todo);
-      void RemoveTodo(Todo todo);
+        Task<IEnumerable<Todo>> GetTodoList();
+        void GetTodo(string identifier);
+        void UpdateTodo(Todo todo);
+        void AddTodo(Todo todo);
+        void RemoveTodo(Todo todo);
     }
 }
