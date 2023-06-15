@@ -34,7 +34,7 @@ namespace TodoAppMaui.Services.TodoServices
 
         public async Task<IEnumerable<Todo>> GetTodoList()
         {
-           return await todoApi.GetTodoList();
+           return await todoApi.GetTodoList().ConfigureAwait(false);
         }
 
         public void UpdateTodo(Todo todo)

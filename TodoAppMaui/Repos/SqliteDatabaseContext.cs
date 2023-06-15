@@ -14,14 +14,14 @@ namespace TodoAppMaui.Repos
 
 
 
-        public Task<List<TblTodo>> GetTodoAsync() {
-            return database.Table<TblTodo>().ToListAsync();
-        }
+        //public Task<List<TblTodo>> GetTodoAsync() {
+        //    return database.Table<TblTodo>().ToListAsync();
+        //}
 
-        public Task<int> SaveTodoASync(TblTodo todo)
-        {
-            //database.GetConnection();
-            return database.InsertAsync(todo);
-        }
+        //public Task<int> SaveTodoASync(TblTodo todo)
+        //{
+        //    //database.GetConnection();
+        //    return database.InsertAsync(todo);
+        //}
     }
 }

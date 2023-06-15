@@ -4,6 +4,7 @@ using TodoAppMaui.Api;
 using TodoAppMaui.Pages;
 using TodoAppMaui.Repos;
 using TodoAppMaui.Repos.InMemory;
+using TodoAppMaui.Repos.SqlLite;
 using TodoAppMaui.Services.Storage.Secure;
 using TodoAppMaui.Services.Storage.SharedPreference;
 using TodoAppMaui.Services.TodoServices;
@@ -27,10 +28,11 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
-		builder.Services.AddSingleton<IDatabaseContext, TodoDbContext>();
+		builder.Services.AddSingleton<SqliteDatabaseContext>(
+            new SqliteDatabaseContext(Path.Combine(FileSystem.AppDataDirectory,"MyDatabase.Db")));
         builder.Services.AddSingleton<ITodoService, TodoService>();
         builder.Services.AddSingleton<TodoApi>();
-        builder.Services.AddSingleton<ITodoRepository,InMemoryTodoRepository>();
+        builder.Services.AddSingleton<ITodoRepository,SqlLiteTodoRepository>();
         builder.Services.AddSingleton<ISecureStorageService,MauiSecureStorageService>();
         builder.Services.AddSingleton<ISharedPreferenceService,MauiSharedPreferenceService>();
 
