@@ -31,6 +31,21 @@ namespace TodoAppMaui.Repos
                 .ForMember(dest => dest.description, opt => opt.MapFrom(src => src.Description))
                 .ForMember(dest => dest.isCompleted, opt => opt.MapFrom(src => src.IsCompleted));
 
+
+                cfg.CreateMap<TblTodoHistory, Todo>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.id))
+                .ForMember(dest => dest.Datetime, opt => opt.MapFrom(src => src.dateTime))
+                .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.title))
+                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.description))
+                .ForMember(dest => dest.IsCompleted, opt => opt.MapFrom(src => src.isCompleted));
+
+                cfg.CreateMap<Todo, TblTodoHistory>()
+                .ForMember(dest => dest.id, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.dateTime, opt => opt.MapFrom(src => src.Datetime))
+                .ForMember(dest => dest.title, opt => opt.MapFrom(src => src.Title))
+                .ForMember(dest => dest.description, opt => opt.MapFrom(src => src.Description))
+                .ForMember(dest => dest.isCompleted, opt => opt.MapFrom(src => src.IsCompleted));
+
                 //Any Other Mapping Configuration ....
             });
             //Create an Instance of Mapper and return that Instance

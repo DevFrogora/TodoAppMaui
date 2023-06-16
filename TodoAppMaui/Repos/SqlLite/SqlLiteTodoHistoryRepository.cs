@@ -16,19 +16,19 @@ namespace TodoAppMaui.Repos.SqlLite
 
         public async Task<int> AddTodo(Todo item)
         {
-            var todo = mapper.Map<TblTodo>(item);
+            var todo = mapper.Map<TblTodoHistory>(item);
             return await dbContext.database.InsertAsync(todo);
         }
 
         public async Task<IEnumerable<Todo>> GetTodoList()
         {
-            var TblTodoList = await dbContext.database.Table<TblTodo>().ToListAsync();
+            var TblTodoList = await dbContext.database.Table<TblTodoHistory>().ToListAsync();
             return mapper.Map<IEnumerable<Todo>>(TblTodoList);
         }
 
         public async Task RemoveTodo(Todo item)
         {
-            var todo = mapper.Map<TblTodo>(item);
+            var todo = mapper.Map<TblTodoHistory>(item);
             await dbContext.database.DeleteAsync(todo);
         }
 

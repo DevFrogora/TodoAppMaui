@@ -14,14 +14,14 @@ namespace TodoAppMaui.viewmodel
 {
     public class TodoHistoryViewModel : INotifyPropertyChanged
     {
-        private readonly ITodoService todoService;
+        private readonly ITodoHistoryService todoHistoryService;
 
-        public TodoHistoryViewModel(ITodoService todoService)
+        public TodoHistoryViewModel(ITodoHistoryService todoService)
         {
-            this.todoService = todoService;
+            this.todoHistoryService = todoService;
             Refresh();
         }
-        public IEnumerable<Todo> todoList { get; set; }
+        public IEnumerable<Todo> todoHistoryList { get; set; }
 
         internal virtual void OnAppearing() { }
 
@@ -29,8 +29,7 @@ namespace TodoAppMaui.viewmodel
 
         private void Refresh()
         {
-            //todoService.GetTodoList().ConfigureAwait(false);
-            Task.Run(async () => { todoList = await todoService.GetTodoList(); OnPropertyChanged(nameof(todoList)); });
+            Task.Run(async () => { todoHistoryList = await todoHistoryService.GetTodoList(); OnPropertyChanged(nameof(todoHistoryList)); });
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

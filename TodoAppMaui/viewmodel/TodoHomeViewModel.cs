@@ -19,13 +19,16 @@ namespace TodoAppMaui.viewmodel
 {
     public class TodoHomeViewModel : INotifyPropertyChanged
     {
-        public TodoHomeViewModel(ITodoService todoService)
+        public TodoHomeViewModel(ITodoService todoService,ITodoHistoryService todoHistoryService)
         {
             this.todoService = todoService;
+            this.todoHistoryService = todoHistoryService;
             OnRefreshTodo(null);
         }
         
         private readonly ITodoService todoService;
+        private readonly ITodoHistoryService todoHistoryService;
+
         public IEnumerable<Todo> todoList { get; set; }
         public bool boolIsTitleValid { get; set; }
         public bool boolIsDescriptionValid { get; set; }
@@ -64,6 +67,7 @@ namespace TodoAppMaui.viewmodel
         private async void OnDeleteTodo(object obj)
         {
             await todoService.RemoveTodo(tempTodo);
+            await todoHistoryService.AddTodo(tempTodo);
             OnRefreshTodo(null);
             this.tempTodo.Clear();
             todoDeletePopup.Close();

@@ -3,7 +3,7 @@
 namespace TodoAppMaui.Domainmodel;
 public class TblTodoHistory
 {
-    [PrimaryKey, AutoIncrement]
+    [PrimaryKey]
     public int id { get; set; }
     public DateTime dateTime { get; set; }
     public string title { get; set; }

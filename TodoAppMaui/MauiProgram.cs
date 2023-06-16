@@ -30,9 +30,15 @@ public static class MauiProgram
 			});
 		builder.Services.AddSingleton<SqliteDatabaseContext>(
             new SqliteDatabaseContext(Path.Combine(FileSystem.AppDataDirectory, "MyDatabase.db")));
-        builder.Services.AddSingleton<ITodoService, TodoService>();
-        builder.Services.AddSingleton<TodoApi>();
+
         builder.Services.AddSingleton<ITodoRepository,SqlLiteTodoRepository>();
+        builder.Services.AddSingleton<ITodoHistoryRepository, SqlLiteTodoHistoryRepository>();
+
+        builder.Services.AddSingleton<ITodoService, TodoService>();
+        builder.Services.AddSingleton<ITodoHistoryService, TodoHistoryService>();
+        builder.Services.AddSingleton<TodoApi>();
+        builder.Services.AddSingleton<TodoHistoryApi>();
+
         builder.Services.AddSingleton<ISecureStorageService,MauiSecureStorageService>();
         builder.Services.AddSingleton<ISharedPreferenceService,MauiSharedPreferenceService>();
 

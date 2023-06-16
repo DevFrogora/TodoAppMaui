@@ -16,6 +16,7 @@ namespace TodoAppMaui.Repos
         async Task Init()
         {
             await database.CreateTableAsync<TblTodo>();
+            await database.CreateTableAsync<TblTodoHistory>();
         }
 
 
