@@ -14,7 +14,7 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <cells:TodoInputCell  />
-        <Button Command="{Binding OnRefreshTodoCommand}" Text="Refresh" />
+        <!--<Button Command="{Binding OnRefreshTodoCommand}" Text="Refresh" />-->
         <ListView ItemsSource="{x:Binding todoList}" HasUnevenRows="True"    >
             <ListView.ItemTemplate>
                 <DataTemplate  >
