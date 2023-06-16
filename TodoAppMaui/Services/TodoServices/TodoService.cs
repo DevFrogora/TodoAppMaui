@@ -22,9 +22,9 @@ namespace TodoAppMaui.Services.TodoServices
            return todoApi.AddTodo(todo);
         }
 
-        public void RemoveTodo(Todo todo)
+        public async Task RemoveTodo(Todo todo)
         {
-            todoApi.RemoveTodo(todo);
+           await todoApi.RemoveTodo(todo);
         }
 
         public void GetTodo(string identifier)
@@ -37,9 +37,9 @@ namespace TodoAppMaui.Services.TodoServices
            return  await todoApi.GetTodoList();
         }
 
-        public void UpdateTodo(Todo todo)
+        public async Task UpdateTodo(Todo todo)
         {
-            todoApi.UpdateTodo(todo);
+           await todoApi.UpdateTodo(todo);
         }
     }
 }

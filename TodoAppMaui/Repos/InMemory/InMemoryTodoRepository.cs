@@ -29,7 +29,7 @@ namespace TodoAppMaui.Repos.InMemory
             return Task.FromResult(0);
         }
 
-        public void RemoveTodo(Todo item)
+        public Task RemoveTodo(Todo item)
         {
             foreach (var todo in todoList)
             {
@@ -39,14 +39,16 @@ namespace TodoAppMaui.Repos.InMemory
                         break;
                 }
             }
+            return Task.CompletedTask;
         }
 
-        public void UpdateTodo(Todo item)
+        public Task UpdateTodo(Todo item)
         {
             foreach (var t in todoList.Where<Todo>(todo => todo.Id == item.Id))
             {
                  t.Title = item.Title; t.Description = item.Description;
             }
+            return Task.CompletedTask;
         }
 
         public void LoadData()

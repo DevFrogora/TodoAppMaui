@@ -29,16 +29,16 @@ namespace TodoAppMaui.Repos.SqlLite
             return mapper.Map<IEnumerable<Todo>>(TblTodoList);
         }
 
-        public void RemoveTodo(Todo item)
+        public async Task RemoveTodo(Todo item)
         {
             var todo = mapper.Map<TblTodo>(item);
-            dbContext.database.DeleteAsync(todo);
+            await dbContext.database.DeleteAsync(todo);
         }
 
-        public void UpdateTodo(Todo item)
+        public async Task UpdateTodo(Todo item)
         {
             var todo = mapper.Map<TblTodo>(item);
-            dbContext.database.UpdateAsync(todo);
+            await dbContext.database.UpdateAsync(todo);
         }
     }
 }

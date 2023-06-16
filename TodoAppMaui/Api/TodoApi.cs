@@ -38,13 +38,13 @@ public class TodoApi
         }
     }
 
-    public void RemoveTodo(Todo item)
+    public async Task RemoveTodo(Todo item)
     {
-        todoRepository.RemoveTodo(item);
+        await todoRepository.RemoveTodo(item);
     }
 
-    public void UpdateTodo(Todo item)
+    public async Task UpdateTodo(Todo item)
     {
-        todoRepository.UpdateTodo(item);
+        await todoRepository.UpdateTodo(item);
     }
 }

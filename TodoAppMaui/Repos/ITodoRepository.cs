@@ -6,7 +6,7 @@ namespace TodoAppMaui.Repos
     {
         Task<IEnumerable<Todo>> GetTodoList();
         Task<int> AddTodo(Todo item);
-        void RemoveTodo(Todo item);
-        void UpdateTodo(Todo item);
+        Task RemoveTodo(Todo item);
+        Task UpdateTodo(Todo item);
     }
 }

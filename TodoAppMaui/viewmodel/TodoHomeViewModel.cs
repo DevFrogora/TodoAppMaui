@@ -51,10 +51,10 @@ namespace TodoAppMaui.viewmodel
             Application.Current.MainPage.ShowPopup(todoDeletePopup);
         }
 
-        private void OnDeleteTodo(object obj)
+        private async void OnDeleteTodo(object obj)
         {
-            todoService.RemoveTodo(tempTodo);
-            OnPropertyChanged(nameof(todoList));
+            await todoService.RemoveTodo(tempTodo);
+            OnRefreshTodo(null);
             this.tempTodo.Clear();
             todoDeletePopup.Close();
         }
@@ -71,11 +71,12 @@ namespace TodoAppMaui.viewmodel
             Application.Current.MainPage.ShowPopup(todoEditPopup);
         }
 
-        private void OnEditTodo(object obj)
+        private async void OnEditTodo(object obj)
         {
             if (IsInputValid())
             {
-                todoService.UpdateTodo(tempTodo);
+                await todoService.UpdateTodo(tempTodo);
+                OnRefreshTodo(null);
                 this.tempTodo.Clear();
                 todoEditPopup.Close();
             }
