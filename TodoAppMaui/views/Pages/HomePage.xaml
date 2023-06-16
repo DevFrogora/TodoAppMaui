@@ -22,6 +22,7 @@
                         <ViewCell.ContextActions >
                             <MenuFlyoutItem  Text="Edit" Command="{Binding Source={x:Reference TodoHomeViewModel}, Path=BindingContext.OnShowEditPopUpCommand}" CommandParameter="{Binding .}"  ></MenuFlyoutItem>
                             <MenuFlyoutItem Text="Delete" Command="{Binding Source={x:Reference TodoHomeViewModel}, Path=BindingContext.OnShowDeletePopUpCommand}" CommandParameter="{Binding .}" ></MenuFlyoutItem>
+                            <MenuFlyoutItem Text="IsCompleted" Command="{Binding Source={x:Reference TodoHomeViewModel}, Path=BindingContext.OnTodoTaskCompletedCommand}" CommandParameter="{Binding .}" ></MenuFlyoutItem>
                         </ViewCell.ContextActions>
                         <cells:TodoCard x:DataType="model:Todo"/>
                     </ViewCell>

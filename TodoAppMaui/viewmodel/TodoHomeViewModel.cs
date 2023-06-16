@@ -36,7 +36,16 @@ namespace TodoAppMaui.viewmodel
         public ICommand OnShowDeletePopUpCommand => new Command(OnShowDeletePopUp);
         public ICommand OnCloseDeletePopupCommand => new Command(OnCloseDeletePopup);
         public ICommand OnDeleteTodoCommand => new Command(OnDeleteTodo);
-        public ICommand OnItemCompletedCommand => new Command(OnCloseDeletePopup);
+        public ICommand OnTodoTaskCompletedCommand => new Command(OnTodoTaskCompleted);
+
+        private async void OnTodoTaskCompleted(object obj)
+        {
+            var todo = (Todo)obj;
+            todo.IsCompleted = !todo.IsCompleted;
+            await todoService.UpdateTodo(todo);
+            OnRefreshTodo(null);
+        }
+
         public ICommand OnRefreshTodoCommand => new Command(OnRefreshTodo);
 
         TodoEditPopup todoEditPopup;
