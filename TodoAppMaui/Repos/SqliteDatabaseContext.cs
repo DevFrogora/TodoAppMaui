@@ -8,8 +8,14 @@ namespace TodoAppMaui.Repos
         public readonly SQLiteAsyncConnection database;
         public SqliteDatabaseContext(string dbPath )
         {
-            database = new SQLiteAsyncConnection( dbPath );
-            database.CreateTableAsync<TblTodo>();
+            database = new SQLiteAsyncConnection( dbPath , SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.SharedCache);
+            Task.Run(async () => await Init());
+            
+        }
+
+        async Task Init()
+        {
+            await database.CreateTableAsync<TblTodo>();
         }
 
 

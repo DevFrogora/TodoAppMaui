@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
@@ -21,10 +22,11 @@ namespace TodoAppMaui.viewmodel
         public TodoHomeViewModel(ITodoService todoService)
         {
             this.todoService = todoService;
+            OnRefreshTodo(null);
         }
+        
         private readonly ITodoService todoService;
-        public IEnumerable<Todo> todoList { get { return todoService.GetTodoList().Result; } set { } }
-
+        public IEnumerable<Todo> todoList { get; set; }
         public bool boolIsTitleValid { get; set; }
         public bool boolIsDescriptionValid { get; set; }
 
@@ -34,6 +36,7 @@ namespace TodoAppMaui.viewmodel
         public ICommand OnShowDeletePopUpCommand => new Command(OnShowDeletePopUp);
         public ICommand OnCloseDeletePopupCommand => new Command(OnCloseDeletePopup);
         public ICommand OnDeleteTodoCommand => new Command(OnDeleteTodo);
+        public ICommand OnRefreshTodoCommand => new Command(OnRefreshTodo);
 
         TodoEditPopup todoEditPopup;
         TodoDeletePopup todoDeletePopup;
@@ -78,7 +81,7 @@ namespace TodoAppMaui.viewmodel
             }
         }
 
-        private void OnAddTodo(object obj)
+        private async void OnAddTodo(object obj)
         {
             if (IsInputValid())
             {
@@ -90,10 +93,10 @@ namespace TodoAppMaui.viewmodel
                     Description = tempTodo.Description,
                     IsCompleted = false
                 };
-                todoService.AddTodo(item);
-                OnPropertyChanged(nameof(todoList));
+                await todoService.AddTodo(item);
                 this.tempTodo.Clear();
                 Application.Current.MainPage.DisplayAlert($"Added", $"Saved Todo Item", "ok");
+                OnRefreshTodo(null);
             }
         }
 
@@ -113,6 +116,12 @@ namespace TodoAppMaui.viewmodel
                 return false;
             }
         }
+
+        void OnRefreshTodo(object obj)
+        {
+            Task.Run(async () => { todoList = await todoService.GetTodoList(); OnPropertyChanged(nameof(todoList)); });
+        }
+
         void OnPropertyChanged(string name) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 
     }

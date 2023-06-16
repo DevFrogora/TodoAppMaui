@@ -17,9 +17,9 @@ namespace TodoAppMaui.Services.TodoServices
             this.todoApi = todoApi;
         }
 
-        public void AddTodo(Todo todo)
+        public Task<int> AddTodo(Todo todo)
         {
-            todoApi.AddTodo(todo);
+           return todoApi.AddTodo(todo);
         }
 
         public void RemoveTodo(Todo todo)
@@ -34,7 +34,7 @@ namespace TodoAppMaui.Services.TodoServices
 
         public async Task<IEnumerable<Todo>> GetTodoList()
         {
-           return await todoApi.GetTodoList().ConfigureAwait(false);
+           return  await todoApi.GetTodoList();
         }
 
         public void UpdateTodo(Todo todo)

@@ -17,7 +17,7 @@ public class TodoApi
         return await todoRepository.GetTodoList();
     }
 
-    public void AddTodo(Todo item)
+    public Task<int> AddTodo(Todo item)
     {
         // do validation , if validation is not valid throw error
         ValidationContext context = new ValidationContext(item, null, null);
@@ -25,7 +25,7 @@ public class TodoApi
         bool valid = Validator.TryValidateObject(item, context, validationResults, true);
         if (valid)
         {
-            todoRepository.AddTodo(item);
+          return todoRepository.AddTodo(item);
         }
         else
         {

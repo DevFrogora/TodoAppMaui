@@ -22,10 +22,11 @@ namespace TodoAppMaui.Repos.InMemory
             return await Task.FromResult(todoList.ToList());
         }
 
-        public void AddTodo(Todo item)
+        public Task<int> AddTodo(Todo item)
         {
             item.Id = primaryKey++;
             todoList.Add(item);
+            return Task.FromResult(0);
         }
 
         public void RemoveTodo(Todo item)

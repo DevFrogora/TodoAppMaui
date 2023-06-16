@@ -12,7 +12,7 @@ namespace TodoAppMaui.Services.TodoServices
         Task<IEnumerable<Todo>> GetTodoList();
         void GetTodo(string identifier);
         void UpdateTodo(Todo todo);
-        void AddTodo(Todo todo);
+        Task<int> AddTodo(Todo todo);
         void RemoveTodo(Todo todo);
     }
 }

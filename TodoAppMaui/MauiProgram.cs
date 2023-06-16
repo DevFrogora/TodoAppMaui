@@ -29,15 +29,15 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 		builder.Services.AddSingleton<SqliteDatabaseContext>(
-            new SqliteDatabaseContext(Path.Combine(FileSystem.AppDataDirectory,"MyDatabase.Db")));
+            new SqliteDatabaseContext(Path.Combine(FileSystem.AppDataDirectory, "MyDatabase.db")));
         builder.Services.AddSingleton<ITodoService, TodoService>();
         builder.Services.AddSingleton<TodoApi>();
         builder.Services.AddSingleton<ITodoRepository,SqlLiteTodoRepository>();
         builder.Services.AddSingleton<ISecureStorageService,MauiSecureStorageService>();
         builder.Services.AddSingleton<ISharedPreferenceService,MauiSharedPreferenceService>();
 
-        builder.Services.AddSingleton<TodoHomeViewModel>();
-        builder.Services.AddSingleton<TodoHistoryViewModel>();
+        builder.Services.AddTransient<TodoHomeViewModel>();
+        builder.Services.AddTransient<TodoHistoryViewModel>();
         builder.Services.AddSingleton<TodoSettingViewModel>();
         builder.Services.AddTransient<HomePage>();
         builder.Services.AddTransient<HistoryPage>();

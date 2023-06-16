@@ -11,4 +11,10 @@ public partial class HistoryPage : ContentPage
 		InitializeComponent();
         BindingContext = MauiProgram.GetService<TodoHistoryViewModel>();
     }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        (BindingContext as TodoHistoryViewModel).OnAppearing();
+    }
 }
