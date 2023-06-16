@@ -19,7 +19,7 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0"
-                           Text="{Binding tempTodo.Date}"
+                           Text="{Binding tempTodo.Datetime}"
                            FontAttributes="Bold" />
             <Label Grid.Row="0" Grid.Column="1"
                            Text="{Binding tempTodo.Title}"

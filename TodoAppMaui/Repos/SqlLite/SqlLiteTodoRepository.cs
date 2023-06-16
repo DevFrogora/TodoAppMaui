@@ -16,11 +16,8 @@ namespace TodoAppMaui.Repos.SqlLite
 
         public async Task<int> AddTodo(Todo item)
         {
-            //await dbContext.database.CreateTableAsync<TblTodo>();
             var todo = mapper.Map<TblTodo>(item);
             return await dbContext.database.InsertAsync(todo);
-            //Console.WriteLine(output);
-            //return Task.CompletedTask;
         }
 
         public async Task<IEnumerable<Todo>> GetTodoList()

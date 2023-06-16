@@ -36,6 +36,7 @@ namespace TodoAppMaui.viewmodel
         public ICommand OnShowDeletePopUpCommand => new Command(OnShowDeletePopUp);
         public ICommand OnCloseDeletePopupCommand => new Command(OnCloseDeletePopup);
         public ICommand OnDeleteTodoCommand => new Command(OnDeleteTodo);
+        public ICommand OnItemCompletedCommand => new Command(OnCloseDeletePopup);
         public ICommand OnRefreshTodoCommand => new Command(OnRefreshTodo);
 
         TodoEditPopup todoEditPopup;
@@ -89,7 +90,7 @@ namespace TodoAppMaui.viewmodel
                 Todo item = new Todo
                 {
                     Id = 1,
-                    Date = DateOnly.FromDateTime(DateTime.Now),
+                    Datetime = DateTime.Now,
                     Title = tempTodo.Title,
                     Description = tempTodo.Description,
                     IsCompleted = false

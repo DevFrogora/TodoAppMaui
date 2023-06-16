@@ -15,7 +15,7 @@
             <ColumnDefinition Width="5*"  />
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Grid.Column="0"
-               Text="{Binding Date}"
+               Text="{Binding Datetime}"
                HorizontalOptions="Start"
                FontAttributes="Bold" />
         <Label Grid.Row="0" Grid.Column="1"

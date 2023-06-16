@@ -14,20 +14,14 @@ public class Todo : INotifyPropertyChanged
         set { id = value; OnPropertyChanged(nameof(Id)); }
     }
     [Required]
-    DateOnly date;
-    public DateOnly Date
+    DateTime datetime;
+    public DateTime Datetime
     {
-        get { return date; }
-        set { date = value; OnPropertyChanged(nameof(Date)); }
+        get { return datetime; }
+        set { datetime = value; OnPropertyChanged(nameof(Datetime)); }
     }
 
-    [Required]
-    TimeOnly time { get; set; }
-    public TimeOnly Time
-    {
-        get { return time; }
-        set { time = value; OnPropertyChanged(nameof(Time)); }
-    }
+
     [Required]
     [StringLength(50, MinimumLength = 4, ErrorMessage = "* Part numbers must be between 4 and 50 character in length.")]
     string title;
@@ -59,9 +53,8 @@ public class Todo : INotifyPropertyChanged
         Title = String.Empty;
         Description = String.Empty;
         IsCompleted = false;
-        Time = new TimeOnly();
         Id = 0;
-        Date = new DateOnly();
+        Datetime = DateTime.Now;
     }
 
     public Todo Clone()

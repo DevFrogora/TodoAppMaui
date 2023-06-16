@@ -56,7 +56,7 @@ namespace TodoAppMaui.Repos.InMemory
             var t1 = new Todo
             {
                 Id = 1,
-                Date = new DateOnly(2021, 5, 31),
+                Datetime = DateTime.Now,
                 Title = "Morning Walk",
                 Description = "To get Fresh air in the morning , let add more data so lol we can see Hahah",
                 IsCompleted = false
@@ -64,7 +64,7 @@ namespace TodoAppMaui.Repos.InMemory
             var t2 = new Todo
             {
                 Id = 2,
-                Date = new DateOnly(2021, 5, 31),
+                Datetime = DateTime.Now,
                 Title = "Evening Walk",
                 Description = "To get rid of stress in the evening",
                 IsCompleted = false
@@ -72,7 +72,7 @@ namespace TodoAppMaui.Repos.InMemory
             var t3 = new Todo
             {
                 Id = 1,
-                Date = new DateOnly(2021, 5, 31),
+                Datetime = DateTime.Now,
                 Title = "Morning Walk",
                 Description = "To get Fresh air in the morning , let add more data so lol we can see Hahah",
                 IsCompleted = false
@@ -80,7 +80,7 @@ namespace TodoAppMaui.Repos.InMemory
             var t4 = new Todo
             {
                 Id = 2,
-                Date = new DateOnly(2021, 5, 31),
+                Datetime = DateTime.Now,
                 Title = "Evening Walk",
                 Description = "To get rid of stress in the evening",
                 IsCompleted = false
@@ -88,7 +88,7 @@ namespace TodoAppMaui.Repos.InMemory
             var t5 = new Todo
             {
                 Id = 1,
-                Date = new DateOnly(2021, 5, 31),
+                Datetime = DateTime.Now,
                 Title = "Morning Walk",
                 Description = "To get Fresh air in the morning , let add more data so lol we can see Hahah",
                 IsCompleted = false
@@ -96,7 +96,7 @@ namespace TodoAppMaui.Repos.InMemory
             var t6 = new Todo
             {
                 Id = 2,
-                Date = new DateOnly(2021, 5, 31),
+                Datetime = DateTime.Now,
                 Title = "Evening Walk",
                 Description = "To get rid of stress in the evening",
                 IsCompleted = false
@@ -104,7 +104,7 @@ namespace TodoAppMaui.Repos.InMemory
             var t7 = new Todo
             {
                 Id = 1,
-                Date = new DateOnly(2021, 5, 31),
+                Datetime = DateTime.Now,
                 Title = "Morning Walk",
                 Description = "To get Fresh air in the morning , let add more data so lol we can see Hahah",
                 IsCompleted = false
@@ -112,7 +112,7 @@ namespace TodoAppMaui.Repos.InMemory
             var t8 = new Todo
             {
                 Id = 2,
-                Date = new DateOnly(2021, 5, 31),
+                Datetime = DateTime.Now,
                 Title = "Evening Walk",
                 Description = "To get rid of stress in the evening",
                 IsCompleted = false
